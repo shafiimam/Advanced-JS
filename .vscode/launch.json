@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "name": "Run Current File",
+            "request": "launch",
+            "program": "${file}"
+    ]
+}
