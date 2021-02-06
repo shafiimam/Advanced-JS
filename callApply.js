@@ -31,23 +31,23 @@ const wifePerson = {
 
 }
 
-//normalPerson.chargeBill();
+normalPerson.chargeBill();
 
-// const heroChargeBill = normalPerson.chargeBill.bind(heroPerson);
-// heroChargeBill(2000);
-// heroChargeBill(3000);
-// console.log(heroPerson.salary);
-// console.log(normalPerson.salary);
+const heroChargeBill = normalPerson.chargeBill.bind(heroPerson);
+heroChargeBill(2000);
+heroChargeBill(3000);
+console.log(heroPerson.salary);
+console.log(normalPerson.salary);
 
-// const friendChargeBill = normalPerson.chargeBill.bind(wifePerson);
-// friendChargeBill(2000);
+const friendChargeBill = normalPerson.chargeBill.bind(wifePerson);
+friendChargeBill(2000);
 
-// normalPerson.chargeBill.call(heroPerson, 900, 100, 10);
-// normalPerson.chargeBill.call(heroPerson, 900, 200, 20);
-// console.log(heroPerson.salary);
+normalPerson.chargeBill.call(heroPerson, 900, 100, 10);
+normalPerson.chargeBill.call(heroPerson, 900, 200, 20);
+console.log(heroPerson.salary);
 
-// normalPerson.chargeBill.call(wifePerson, 8000, 2000, 200);
-// console.log(wifePerson.salary);
+normalPerson.chargeBill.call(wifePerson, 8000, 2000, 200);
+console.log(wifePerson.salary);
 
 normalPerson.chargeBill.apply(heroPerson, [3000, 300, 30]);
 console.log(heroPerson.salary);
