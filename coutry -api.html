@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country api</title>
+</head>
+
+<body>
+    <div id="countries">
+        <H1>COUNTRY INFORMATION</H1>
+        <input id="country-input" type="text" placeholder="enter country name">
+        <button onclick="searchCountry()" id="search-country">search</button>
+        <ul id="country-information">
+
+        </ul>
+    </div>
+    <script>
+        async function getCountryData(country) {
+            const apiUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => showData(data))
+
+            //console.log(data[0].region);
+        }
+
+        function searchCountry() {
+
+            const searchCountry = document.getElementById('country-input').value;
+            getCountryData(searchCountry);
+            document.getElementById('country-input').value = '';
+        }
+
+        function showData(data) {
+            const country = data[0].name;
+            const capital = data[0].capital;
+            const currency = data[0].currencies[0].name;
+            const flag = data[0].flag;
+            const item = document.createElement('li');
+            item.innerText = `country: ${country}
+                            capital: ${capital}
+                            currency: ${currency}`
+            const flagImage = document.createElement('img');
+            flagImage.src = flag;
+            flagImage.style.width = "300px";
+            flagImage.style.height = "100px";
+            document.getElementById('country-information').appendChild(item);
+            document.getElementById('countries').appendChild(flagImage);
+        }
+    </script>
+</body>
+
+</html>
